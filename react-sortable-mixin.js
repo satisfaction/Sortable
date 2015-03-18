@@ -97,6 +97,10 @@
 						_activeComponent = this;
 					}
 					else if (name === 'onAdd' || name === 'onUpdate') {
+						if (_nextSibling && _nextSibling === evt.ghost) {
+							_nextSibling = _nextSibling.nextElementSibling;
+						}
+
 						evt.from.insertBefore(evt.item, _nextSibling);
 
 						var newState = {},
